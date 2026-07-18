@@ -1,15 +1,20 @@
 import { Link } from "react-router-dom";
 import { Menu, LayoutGrid, Search, Scale, Heart, ShoppingCart } from "lucide-react";
-import  logo  from "../../assets/ROZETKA-Logo-L3-B-RGB.png"
+import  logo  from "../../assets/ROZETKA-Logo-L3-B-RGB.png";
+import { useState } from 'react';
+import HeaderDrawer from "./UI/HeaderDrawer";
 
 export default function Navbar() {
+   const [isOpen, setIsOpen] = useState(false);
     return (
      <header className="fixed top-0 left-0 right-0 z-50 border-b bg-gray-700 ">
         <div className="mx-auto px-6 h-15 flex items-center gap-6 max-w-[1550px]">
 
-         <button className="p-2 rounded-lg hover:bg-gray-600">
+         <button onClick={() => setIsOpen(true)}
+          className="p-2 rounded-lg hover:bg-gray-600 transition-colors duration-300 ease-in-out">
              <Menu />
          </button>
+         
          <Link to={"/"}
          className=""
          >
@@ -17,7 +22,7 @@ export default function Navbar() {
           src={logo} alt="Rozetka logo" />
          </Link>
 
-         <button className="flex items-center justify-center h-11 w-30 p-1 gap-2 border rounded-lg hover:bg-gray-600">
+         <button className="flex items-center justify-center h-11 w-30 p-1 gap-2 border rounded-lg hover:bg-gray-600 ">
             <LayoutGrid />
             <h1 className="font-bold">Каталог</h1>
          </button>
@@ -32,20 +37,21 @@ export default function Navbar() {
 
             <button
             type="button"
-            className="absolute right-0 top-0 h-11 px-5 bg-accent hover:bg-accent-hover rounded-xl rounded-r-lg">
+            className="absolute right-0 top-0 h-11 px-5 bg-accent hover:bg-accent-hover rounded-xl rounded-r-lg transition-colors duration-300 ease-in-out">
                <h1 className="font-bold">Знайти</h1>
 
             </button>
          </div>
 
 
-          <button className="p-1 hover:bg-gray-600"> <Scale /> </button>
+          <button className="p-2 rounded-lg hover:bg-gray-600 transition-colors duration-200 ease-in-out"> <Scale /> </button>
 
-          <button className="p-1 hover:bg-gray-600"> <Heart /> </button>
+          <button className="p-2 rounded-lg hover:bg-gray-600 transition-colors duration-200 ease-in-out"> <Heart /> </button>
 
-          <button className="p-1 hover:bg-gray-600"> <ShoppingCart /> </button>
+          <button className="p-2 rounded-lg hover:bg-gray-600 transition-colors duration-200 ease-in-out"> <ShoppingCart /> </button>
             
         </div>
+        <HeaderDrawer isOpen={isOpen} onClose={() => setIsOpen(false)} />
      </header> 
     )
 }
