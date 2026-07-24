@@ -1,4 +1,4 @@
-import { X } from 'lucide-react';
+import { X, HelpCircle, ShoppingCart, Heart, Scale } from 'lucide-react';
 import logo from "../../../assets/ROZETKA-Logo-L3-B-RGB.png";
 interface HeaderDrawerProps {
     isOpen: boolean;
@@ -30,7 +30,12 @@ export default function HeaderDrawer({ isOpen, onClose } : HeaderDrawerProps) {
         <nav className='flex text-black'>
             <ul>
                 <li>
-                    <button>Довідковий центр</button>
+                    <button className='w-full flex items-center gap-3 p-3 rounded-lg hover:bg-gray-100 transition-colors text-left hover:text-green-500'>
+                        <span className="flex items-center justify-center w-9 h-9 rounded-lg bg-gray-100 shrink-0 ">
+                            <HelpCircle size={25} className="hover:text-green-500" />
+                        </span>
+                        <span className="font-medium">Довідковий центр</span>
+                    </button>
                 </li>
                 <li>
                     <div>
@@ -42,15 +47,30 @@ export default function HeaderDrawer({ isOpen, onClose } : HeaderDrawerProps) {
                 </li>
 
                 <li>
-                    <button>Кошик</button>
+                     <button className='w-full flex items-center gap-3 p-3 rounded-lg hover:bg-gray-100 transition-colors text-left hover:text-green-500'>
+                        <span className="flex items-center justify-center w-9 h-9 rounded-lg bg-gray-100 shrink-0 ">
+                            <ShoppingCart size={25} className="hover:text-green-500" />
+                        </span>
+                        <span>Кошик</span>
+                    </button>
                 </li>
 
                 <li>
-                    <button>Списки бажань</button>
+                    <button className='w-full flex items-center gap-3 p-3 rounded-lg hover:bg-gray-100 transition-colors text-left hover:text-green-500'>
+                        <span className="flex items-center justify-center w-9 h-9 rounded-lg bg-gray-100 shrink-0 ">
+                            <Heart size={25} className="hover:text-green-500" />
+                        </span>
+                        <span>Список бажань</span>
+                    </button>
                 </li>
 
                 <li>
-                    <button>Списки порівнянь</button>
+                    <button className='w-full flex items-center gap-3 p-3 rounded-lg hover:bg-gray-100 transition-colors text-left hover:text-green-500'>
+                        <span className="flex items-center justify-center w-9 h-9 rounded-lg bg-gray-100 shrink-0 ">
+                            <Scale size={25} className="hover:text-green-500" />
+                        </span>
+                        <span>Списки порівнянь</span>
+                    </button>
                 </li>
             </ul>
         </nav>
