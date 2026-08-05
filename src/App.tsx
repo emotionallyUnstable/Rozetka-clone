@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Navbar from "./components/layout/Navbar";
+import CategoryPage from "./pages/CategoryPage";
 
 function App() {
  
-
   return (
     <BrowserRouter>
       <div className="min-h-screen flex flex-col">
@@ -12,6 +12,7 @@ function App() {
         <main className="flex-1 pt-16">
         <Routes>
           <Route index element={<Home />} />
+          <Route path="/category/:categorySlug" element={<CategoryPage />} />
         </Routes>
         </main>
       </div>

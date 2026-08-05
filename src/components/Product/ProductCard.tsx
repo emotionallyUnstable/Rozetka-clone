@@ -6,6 +6,7 @@ export interface Product {
   image: string;
   price: number;
   hasFreeDelivery?: boolean;
+  category?: string;
 }
 
 
