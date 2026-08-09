@@ -1,4 +1,5 @@
 import { Heart, ShoppingCart } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export interface Product {
   id: number;
@@ -7,6 +8,8 @@ export interface Product {
   price: number;
   hasFreeDelivery?: boolean;
   category?: string;
+  description?: string;
+  specs?: { label: string; value: string }[]; 
 }
 
 
@@ -21,8 +24,12 @@ export default function ProductCard({product}: ProductCardProps) {
           <button className="absolute top-3 right-3 text-gray-400 hover: text-amber-500">
             <Heart />
           </button>
+
+          <Link to={`/product/${product.id}`}>
           <img src={product.image} alt={product.name} className="w-full h-40 object-contain mb-3" />
           <p className="text-sm text-gray-800 line-clamp-2 mb-2">{product.name}</p>
+          </Link>
+
           <div className="mb-1">
             <span className="text-black font-bold text-lg">{product.price} ₴</span>
           </div>

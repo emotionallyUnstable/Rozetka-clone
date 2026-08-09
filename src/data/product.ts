@@ -41,6 +41,17 @@ export const allProducts: Product[] =[
   { id: 13, name: "Ігрова приставка для телевізора Game Stick M15 Консоль з іграми та бездротовими джойстиками", image: gameStick, price:1100, hasFreeDelivery: true, category: "gaming" },
   /// HomeAppliences
   { id: 14, name:"Пральна машина вузька AEG ", image: AEG, price:14999, hasFreeDelivery: true, category: "appliances" },
+  
   { id: 15, name:"Кондиціонер Cooper&Hunter", image: air_conditioner, price:22899, hasFreeDelivery: true, category: "appliances" },
-  { id: 16, name:"Двокамерний холодильник LG", image: fridge, price:28799, hasFreeDelivery: true, category: "appliances" },
+
+  { id: 16, name:"Двокамерний холодильник LG", image: fridge, price:28799, hasFreeDelivery: true, category: "appliances",
+    description: "Місткий та технологічний холодильник з нижнім розташуванням морозильної камери. Інверторний компресор забезпечує тиху роботу та економне споживання електроенергії.",
+    specs: [
+    { label: "Загальний об'єм", value: "375 л" },
+    { label: "Клас енергоспоживання", value: "E (A+)" },
+    { label: "Тип компресора", value: "Інверторний" },
+    { label: "Тип холодильника", value: "Двокамерний" },
+           ],
+   },
 ]
+

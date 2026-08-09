@@ -3,9 +3,11 @@ import { Menu, LayoutGrid, Search, Scale, Heart, ShoppingCart } from "lucide-rea
 import  logo  from "../../assets/ROZETKA-Logo-L3-B-RGB.png";
 import { useState } from 'react';
 import HeaderDrawer from "./UI/HeaderDrawer";
+import CatalogMenu from "./UI/CatalogMenu";
 
 export default function Navbar() {
    const [isOpen, setIsOpen] = useState(false);
+   const [isCatalogOpen, setIsCatalogOpen] = useState(false);
     return (
      <header className="fixed top-0 left-0 right-0 z-50 border-b bg-gray-700 ">
         <div className="mx-auto px-6 h-15 flex items-center gap-6 max-w-[1550px]">
@@ -22,11 +24,14 @@ export default function Navbar() {
           src={logo} alt="Rozetka logo" />
          </Link>
 
-         <button className="flex items-center justify-center h-11 w-30 p-1 gap-2 border rounded-lg hover:bg-gray-600 ">
+        
+         <button onClick={() => setIsCatalogOpen((prev) => !prev)} className="flex items-center justify-center h-11 w-30 p-1 gap-2 border rounded-lg hover:bg-gray-600 ">
             <LayoutGrid />
             <h1 className="font-bold">Каталог</h1>
          </button>
 
+        
+        
 
          <div className="relative flex-1">
             <input className="p-1 h-11 w-full border rounded-lg bg-white text-gray-500 pl-10"
@@ -51,6 +56,8 @@ export default function Navbar() {
           <button className="p-2 rounded-lg hover:bg-gray-600 transition-colors duration-200 ease-in-out"> <ShoppingCart /> </button>
             
         </div>
+        
+         <CatalogMenu isOpen={isCatalogOpen} onClose={() => setIsCatalogOpen(false)} />
         <HeaderDrawer isOpen={isOpen} onClose={() => setIsOpen(false)} />
      </header> 
     )

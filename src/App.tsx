@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Navbar from "./components/layout/Navbar";
 import CategoryPage from "./pages/CategoryPage";
+import ProductPage from "./pages/ProductPage"
 
 function App() {
  
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route index element={<Home />} />
           <Route path="/category/:categorySlug" element={<CategoryPage />} />
+          <Route path="/product/:productId" element={<ProductPage />} />
         </Routes>
         </main>
       </div>
