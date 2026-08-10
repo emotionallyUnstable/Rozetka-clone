@@ -42,11 +42,11 @@ export default function ProductPage() {
               <div>
                 <h1 className="text-2x1 font-bold mb-4 text-black ">{product.name}</h1>
                 {activeTab === "about" && (
-                    <p className="text-gray-700 font-bold ">{product.description}</p>
+                    <p className="text-gray-700 font-bold line-clamp-3">{product.description}</p>
                 )}
                 {activeTab === "specs" && (
                     <ul className="divide-y">
-                        {product.specs?.map((spec) => (
+                        {product.specs?.slice(0, 5).map((spec) => (
                             <li key={spec.label} className="flex justify-between py-2">
                                 <span className="text-gray-700">{spec.label}: </span>
                                 <span className="font-medium text-gray-700 ml-2">{spec.value}</span>
