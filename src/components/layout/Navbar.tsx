@@ -1,13 +1,32 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Menu, LayoutGrid, Search, Scale, Heart, ShoppingCart } from "lucide-react";
+import { allProducts } from "../../data/product";
 import  logo  from "../../assets/ROZETKA-Logo-L3-B-RGB.png";
 import { useState } from 'react';
 import HeaderDrawer from "./UI/HeaderDrawer";
 import CatalogMenu from "./UI/CatalogMenu";
+import SearchSuggestions from "./UI/SearchSuggestions"
 
 export default function Navbar() {
    const [isOpen, setIsOpen] = useState(false);
    const [isCatalogOpen, setIsCatalogOpen] = useState(false);
+   const [query, setQuery] = useState("");
+   const navigate = useNavigate();
+
+   const suggestions = query.trim()
+    ? allProducts.filter((product) =>
+        product.name.toLowerCase().includes(query.toLowerCase())
+      ).slice(0, 5)
+    : [];
+
+     const handleSearch = () => {
+    if (query.trim()) {
+      navigate(`/search?q=${encodeURIComponent(query.trim())}`);
+      setQuery("");
+    }
+  };
+
+   
     return (
      <header className="fixed top-0 left-0 right-0 z-50 border-b bg-gray-700 ">
         <div className="mx-auto px-6 h-15 flex items-center gap-6 max-w-[1550px]">
@@ -32,10 +51,10 @@ export default function Navbar() {
 
         
         
-
+   
          <div className="relative flex-1">
             <input className="p-1 h-11 w-full border rounded-lg bg-white text-gray-500 pl-10"
-            type="text" placeholder="Я шукаю..." />
+            type="text" placeholder="Я шукаю..." value={query} onChange={(e) => setQuery(e.target.value)} onKeyDown={(e) => e.key === "Enter" && handleSearch()} />
 
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"/>
             
@@ -44,16 +63,16 @@ export default function Navbar() {
             type="button"
             className="absolute right-0 top-0 h-11 px-5 bg-accent hover:bg-accent-hover rounded-xl rounded-r-lg transition-colors duration-300 ease-in-out">
                <h1 className="font-bold">Знайти</h1>
-
             </button>
+            <SearchSuggestions suggestions={suggestions} onSelect={() => setQuery("")} />
          </div>
-
 
           <button className="p-2 rounded-lg hover:bg-gray-600 transition-colors duration-200 ease-in-out"> <Scale /> </button>
 
           <button className="p-2 rounded-lg hover:bg-gray-600 transition-colors duration-200 ease-in-out"> <Heart /> </button>
 
           <button className="p-2 rounded-lg hover:bg-gray-600 transition-colors duration-200 ease-in-out"> <ShoppingCart /> </button>
+          
             
         </div>
         

@@ -22,6 +22,8 @@ import air_conditioner from "../assets/Goods/HomeAppliances/Cooper&Hunter1.webp"
 import fridge from "../assets/Goods/HomeAppliances/LG GC-B509ETTM-1.webp"
 
 
+
+
 export const allProducts: Product[] =[
   { id: 1, name: "Ноутбук ASUS 16 Vivobook 16 M1607KA-MB143 FHD IPS/Ryzen 5 AI 330/16GB/512SSD/UMA/DOS/Quiet Blue", image:asus, price:39054, hasFreeDelivery: true, category: "laptops",
     description: "Він тут! Ми з гордістю представляємо новий ASUS Copilot+ PC – ASUS Vivobook 16. Оснащений новітнім процесором із підтримкою штучного інтелекту, цей ноутбук пропонує новітні інтелектуальні функції, підвищену безпеку, швидкість і можливості для персоналізації. Інтегрований модуль для прискорення ШІ-обчислень, функція Copilot у Windows для персоналізованої допомоги та набір потужних ШІ-інструментів від ASUS роблять цей пристрій найкращим помічником. ASUS Copilot+ PC простіше, швидше й розумніше звичайних комп’ютерів. Ви можете скористатися всіма можливостями штучного інтелекту просто зараз. Відчуйте різницю!",
